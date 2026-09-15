@@ -1,0 +1,208 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens — base layer from pos-frontend, extensible for your project.
+   --------------------------------------------------------------------------- */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Brand extensions */
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-border: var(--primary-border);
+  --color-primary-muted: var(--primary-muted);
+  --color-muted-foreground-subtle: var(--muted-foreground-subtle);
+  --color-table-row-alt: var(--table-row-alt);
+  --color-icon-strong: var(--icon-strong);
+
+  /* Status scale — 6 hues x 3 tiers */
+  --color-status-green: var(--status-green);
+  --color-status-green-soft: var(--status-green-soft);
+  --color-status-green-tint: var(--status-green-tint);
+  --color-status-blue: var(--status-blue);
+  --color-status-blue-soft: var(--status-blue-soft);
+  --color-status-blue-tint: var(--status-blue-tint);
+  --color-status-red: var(--status-red);
+  --color-status-red-soft: var(--status-red-soft);
+  --color-status-red-tint: var(--status-red-tint);
+  --color-status-yellow: var(--status-yellow);
+  --color-status-yellow-soft: var(--status-yellow-soft);
+  --color-status-yellow-tint: var(--status-yellow-tint);
+  --color-status-orange: var(--status-orange);
+  --color-status-orange-soft: var(--status-orange-soft);
+  --color-status-orange-tint: var(--status-orange-tint);
+  --color-status-purple: var(--status-purple);
+  --color-status-purple-soft: var(--status-purple-soft);
+  --color-status-purple-tint: var(--status-purple-tint);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Layout constants */
+  --spacing-header: 60px;
+  --spacing-sidebar: 240px;
+  --spacing-sidebar-collapsed: 80px;
+  --spacing-content: 1400px;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Surfaces */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Brand */
+  --primary: #6e62ff;
+  --primary-foreground: #ffffff;
+  --primary-hover: #4c3ee0;
+  --primary-border: #d9d6ff;
+  --primary-muted: #6e62ff2e;
+
+  /* Secondary */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+
+  /* Muted */
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --muted-foreground-subtle: #94a3b8;
+
+  /* Accent */
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+
+  /* Destructive */
+  --destructive: #c81c0e;
+
+  /* Border & Input */
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #6e62ff;
+
+  /* Status — Green */
+  --status-green: #16a34a;
+  --status-green-soft: #dcfce7;
+  --status-green-tint: #bbf7d0;
+
+  /* Status — Blue */
+  --status-blue: #2563eb;
+  --status-blue-soft: #dbeafe;
+  --status-blue-tint: #bfdbfe;
+
+  /* Status — Red */
+  --status-red: #dc2626;
+  --status-red-soft: #fee2e2;
+  --status-red-tint: #fecaca;
+
+  /* Status — Yellow */
+  --status-yellow: #ca8a04;
+  --status-yellow-soft: #fef9c3;
+  --status-yellow-tint: #fef08a;
+
+  /* Status — Orange */
+  --status-orange: #ea580c;
+  --status-orange-soft: #ffedd5;
+  --status-orange-tint: #fed7aa;
+
+  /* Status — Purple */
+  --status-purple: #9333ea;
+  --status-purple-soft: #f3e8ff;
+  --status-purple-tint: #e9d5ff;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #6e62ff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #6e62ff;
+
+  /* Misc */
+  --table-row-alt: #f8fafc;
+  --icon-strong: #0f172a;
+
+  /* Charts */
+  --chart-1: #6e62ff;
+  --chart-2: #2563eb;
+  --chart-3: #16a34a;
+  --chart-4: #ca8a04;
+  --chart-5: #dc2626;
+
+  /* Shadows */
+  --shadow-figma: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------------------------------------------------------
+   Global animations
+   --------------------------------------------------------------------------- */
+
+@keyframes error-scroller-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 4px var(--primary-muted);
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility overflow-anchor-none {
+  overflow-anchor: none;
+}
