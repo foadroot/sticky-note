@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sticky-notes-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: sticky_notes
+      POSTGRES_USER: sticky_user
+      POSTGRES_PASSWORD: sticky_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - sticky-notes-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sticky_user -d sticky_notes"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  sticky-notes-postgres-data:
