@@ -8,7 +8,8 @@ import { NextResponse } from "next/server";
  * plug it in here following the same pattern as pos-frontend's proxy.ts:
  * resolve the session, guard protected routes, forward the access token.
  */
-export default function proxy(req: NextRequest) {
+export default function proxy(_req: NextRequest) {
+  void _req;
   return NextResponse.next();
 }
 
