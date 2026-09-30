@@ -19,12 +19,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "FOAD Starter",
-    template: "%s | FOAD Starter",
+    default: "Project Sticky Notes",
+    template: "%s | Project Sticky Notes",
   },
   description:
-    "A Next.js starter template following the folder structure and implementation patterns of pos-frontend.",
-  applicationName: "FOAD Starter",
+    "A lightweight thought-capture system for developers.",
+  applicationName: "Project Sticky Notes",
 };
 
 export default function RootLayout({
