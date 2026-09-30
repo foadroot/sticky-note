@@ -3,6 +3,9 @@ export const routes = {
     home: "/",
   },
   privateRoutes: {
+    workspace: "/panel",
+    projects: "/panel/projects",
+    settings: "/panel/settings",
     admin: {
       dashboard: "/panel/admin/dashboard",
     },
@@ -19,8 +22,6 @@ export function panelHomeFor(role: Role): string | null {
     case "super-admin":
     case "manager":
       return routes.privateRoutes.admin.dashboard;
-    case "employee":
-      return routes.privateRoutes.employee.dashboard;
     default:
       return null;
   }

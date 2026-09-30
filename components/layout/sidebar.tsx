@@ -9,7 +9,9 @@ const SIDEBAR_NAV = [
   {
     label: "Main",
     items: [
-      { label: "Dashboard", href: "/panel/admin/dashboard" },
+      { label: "Workspace", href: "/panel" },
+      { label: "Projects", href: "/panel/projects" },
+      { label: "Settings", href: "/panel/settings" },
     ],
   },
 ] as const;
