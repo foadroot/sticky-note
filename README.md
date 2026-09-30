@@ -1,10 +1,10 @@
-# FOAD Starter Template
+# Project Sticky Notes
 
-A Next.js starter template following the folder structure and implementation patterns of pos-frontend.
+A developer-focused thought-capture application, built from the FOAD Starter Template while preserving its established project conventions.
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **React**: 19
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4 (CSS-first config)
@@ -12,7 +12,8 @@ A Next.js starter template following the folder structure and implementation pat
 - **Icons**: lucide-react
 - **Forms**: react-hook-form + zod v4
 - **Tables**: @tanstack/react-table v8
-- **Auth**: next-auth v5 beta
+- **Auth**: Email/password sessions stored in PostgreSQL
+- **Database**: PostgreSQL + Prisma ORM
 - **State**: React Context + useState
 - **Toasts**: sonner (wrapped in vendor-neutral lib/toast)
 - **Package Manager**: pnpm
@@ -21,10 +22,26 @@ A Next.js starter template following the folder structure and implementation pat
 
 ```bash
 pnpm install
+docker compose up -d postgres
+copy .env.example .env
+pnpm prisma generate
+pnpm prisma migrate deploy
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+## Status and architecture
+
+PostgreSQL and Prisma are the source of truth; Redis and Cloudinary are intentionally deferred. See [the architecture plan](docs/ARCHITECTURE.md), [future Redis note](docs/FUTURE_REDIS.md), and [future Cloudinary note](docs/FUTURE_CLOUDINARY.md).
+
+## Scheduled expiration
+
+Schedule a daily authenticated `POST` to `/api/maintenance/archive-expired` with `Authorization: Bearer $CRON_SECRET`. It is idempotent and archives all active, non-deleted notes whose `expiresAt` is at or before the current UTC time. Expiration never deletes a note.
+
+## Local PostgreSQL
+
+`docker-compose.yml` provides a local PostgreSQL 16 instance at port 5432 with a persistent `sticky-notes-postgres-data` Docker volume. The ignored local `.env` is preconfigured for it. Stop it with `docker compose down`; use `docker compose down -v` only when intentionally discarding local database data.
 
 ## Project Structure
 
