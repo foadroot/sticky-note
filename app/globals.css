@@ -90,40 +90,40 @@
   --radius: 0.625rem;
 
   /* Surfaces */
-  --background: #171717;
-  --foreground: #f5f5f5;
-  --card: #252525;
-  --card-foreground: #f5f5f5;
-  --popover: #252525;
-  --popover-foreground: #f5f5f5;
+  --background: #ffffff;
+  --foreground: #360802;
+  --card: #ffffff;
+  --card-foreground: #360802;
+  --popover: #ffffff;
+  --popover-foreground: #360802;
 
   /* Brand */
-  --primary: #78f5c5;
-  --primary-foreground: #121212;
-  --primary-hover: #a2f8d8;
-  --primary-border: #315c4d;
-  --primary-muted: #78f5c51e;
+  --primary: #f73b20;
+  --primary-foreground: #ffffff;
+  --primary-hover: #f84d35;
+  --primary-border: #f8c9c1;
+  --primary-muted: #f73b200d;
 
   /* Secondary */
-  --secondary: #292929;
-  --secondary-foreground: #f5f5f5;
+  --secondary: #fdedea;
+  --secondary-foreground: #360802;
 
   /* Muted */
-  --muted: #252525;
-  --muted-foreground: #a3a3a3;
-  --muted-foreground-subtle: #737373;
+  --muted: #fdedea;
+  --muted-foreground: #6f5752;
+  --muted-foreground-subtle: #ababab;
 
   /* Accent */
-  --accent: #2d2d2d;
-  --accent-foreground: #f5f5f5;
+  --accent: #fdedea;
+  --accent-foreground: #360802;
 
   /* Destructive */
   --destructive: #c81c0e;
 
   /* Border & Input */
-  --border: #414141;
-  --input: #515151;
-  --ring: #78f5c5;
+  --border: #e7dcdb;
+  --input: #e7dcdb;
+  --ring: #f73b20;
 
   /* Status — Green */
   --status-green: #16a34a;
@@ -156,18 +156,18 @@
   --status-purple-tint: #e9d5ff;
 
   /* Sidebar */
-  --sidebar: #171717;
-  --sidebar-foreground: #f5f5f5;
-  --sidebar-primary: #78f5c5;
-  --sidebar-primary-foreground: #121212;
-  --sidebar-accent: #252525;
-  --sidebar-accent-foreground: #f5f5f5;
-  --sidebar-border: #414141;
-  --sidebar-ring: #78f5c5;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #360802;
+  --sidebar-primary: #f73b20;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fdedea;
+  --sidebar-accent-foreground: #360802;
+  --sidebar-border: #e7dcdb;
+  --sidebar-ring: #f73b20;
 
   /* Misc */
-  --table-row-alt: #202020;
-  --icon-strong: #f5f5f5;
+  --table-row-alt: #fff8f7;
+  --icon-strong: #360802;
 
   /* Charts */
   --chart-1: #6e62ff;
